@@ -1,9 +1,16 @@
-import Express from "express";
+import Express, { json } from "express";
+import sendEmail from "../Helpers/sendMail.js";
+
 
 const app=Express.Router();
 
-app.get("sendMail",(req,res)=>{
-    return res.status(200).json({status:200,response:"This is sending mail.."});
+
+
+
+app.post("/sendMail",async(req,res)=>{
+    const result=await sendEmail(req?.body?.email_id,req?.body?.subject,req?.body?.message);
+    console.log(result);
+    return res.status(200).json({status:200,response:"Sending mail and more..."});
 })
 
 export default app;
