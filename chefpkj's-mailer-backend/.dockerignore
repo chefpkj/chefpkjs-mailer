@@ -1,0 +1,13 @@
+# Exclude temporary files
+*~
+*.swp
+
+.env
+
+# Exclude development-specific files
+.git
+.gitignore
+.vscode
+
+# Exclude large files
+node_modules
